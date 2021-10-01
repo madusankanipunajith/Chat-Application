@@ -1,0 +1,24 @@
+{
+  "name": "Chat-Application",
+  "version": "1.0.0",
+  "description": "Practicing to build a chat application by using socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon run src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madusankanipunajith/Chat-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madusankanipunajith/Chat-Application/issues"
+  },
+  "homepage": "https://github.com/madusankanipunajith/Chat-Application#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  }
+}
