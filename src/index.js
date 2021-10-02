@@ -18,18 +18,16 @@ const message = 'Hello Welcome to Jithson chat application';
 // configuring socket io connection
 io.on('connection', (socket)=>{
     console.log('New websocket connection is running');
-    // socket.emit('countUpdated', count);
-
-    // socket.on('increment', ()=>{
-    //     count++;
-    //     // socket.emit('countUpdate, count)
-    //     io.emit('countUpdated', count);
-    // })
 
     socket.emit('welcomeMessage', message);
+    socket.broadcast.emit('welcomeMessage', 'A new user has joined to the chat application');
 
     socket.on('welcome', (reply)=>{
         io.emit('welcomeMessage', reply);
+    })
+
+    socket.on('disconnect', ()=>{
+        io.emit('welcomeMessage', 'A user has left');
     })
 
 })
