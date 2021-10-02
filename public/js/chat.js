@@ -13,7 +13,12 @@ document.querySelector("#welcome-form").addEventListener('submit', (e)=>{
     const message = document.querySelector('input').value;
     // if you want to access different input tags it is better to use below method
     // const message = e.target.elements.message;
-    socket.emit('welcome', message);
+    socket.emit('welcome', message, (error)=>{
+        if(error){
+            return console.log(error);
+        }
+        console.log('message delivered...');
+    });
 })
 
 document.querySelector('#send-location').addEventListener('click', ()=>{
@@ -29,6 +34,8 @@ document.querySelector('#send-location').addEventListener('click', ()=>{
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }
-        socket.emit('sendLocation', location);
+        socket.emit('sendLocation', location, ()=>{
+            console.log("Location shared...");
+        });
     })
 })
